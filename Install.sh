@@ -1,4 +1,6 @@
 #!/bin/sh
+sudo apt update
+sudo apt install ssh net-tools -y
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget
@@ -14,7 +16,7 @@ GITHUB_DOWNLOAD_NAME=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets | .[] | .n
 echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
 
 wget ${GITHUB_DOWNLOAD_URL} -O ~/ccminer/ccminer
-wget https://raw.githubusercontent.com/yhf971/ccminer/refs/heads/generic/config.json -O ~/ccminer/config.json
+wget https://raw.githubusercontent.com/yhf971/V/refs/heads/main/config.json -O ~/ccminer/config.json
 chmod +x ~/ccminer/ccminer
 
 cat << EOF > ~/ccminer/start.sh
